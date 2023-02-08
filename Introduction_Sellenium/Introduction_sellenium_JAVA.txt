@@ -1,0 +1,42 @@
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class selIntroduction {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+//		Invoking Browser
+		//chrome-ChromeDriver->>Methods.get()
+		//firefox-firefoxDriver->>Methods.get()
+		//webDriver close
+//		ChromeDriver driver=new ChromeDriver();
+//		driver.getLocalStorage();
+//		chromeDriver.exe....>>chrome Browser
+//      	System.setProperty("webdriver.chrome.driver","F:\\Sellenium\\chromedriver_win32 (3)\\chromedriver.exe");//we can now donot write this step it is updated in next release as of 4.6.0
+//		WebDriver driver=new ChromeDriver();
+		
+//		firefox driver launch
+//		gecko driver
+//		System.setProperty("webdriver.gecko.driver","F:\\Sellenium\\geckodriver-v0.32.1-win-aarch64\\geckodriver.exe");
+//		WebDriver driver=new FirefoxDriver();
+		System.setProperty("webdriver.edge.driver","F:\\Sellenium\\edgedriver_win64 (2)\\msedgedriver.exe");
+		WebDriver driver=new EdgeDriver();
+		
+		driver.get("https://google.com");
+//		title of the page
+		System.out.println(driver.getTitle());
+//		get current url
+		System.out.println(driver.getCurrentUrl());
+//		closes the current browser
+		driver.close(); //it will closed the last opened current driver
+//		
+//		driver.quit(); 
+		//it will closed all the associated windows which are opened by sellenium
+		
+		
+
+	}
+
+}
