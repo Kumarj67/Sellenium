@@ -1,0 +1,56 @@
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Locators {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+//		implicit wait-2 sec time out
+		System.setProperty("webdriver.chrome.driver","F:\\Sellenium\\chromedriver_win32 (3)\\chromedriver.exe");//we can now donot write this step it is updated in next release as of 4.6.0
+	WebDriver driver=new ChromeDriver();
+driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+	driver.get("https://rahulshettyacademy.com/locatorspractice/");
+	driver.findElement(By.id("inputUsername")).sendKeys("jeetesh");
+	driver.findElement(By.name("inputPassword")).sendKeys("@123");
+	driver.findElement(By.className("submit")).click();
+//	using CSS selectors
+  //  $('p.error') to get desired css selectors in console
+	System.out.println(driver.findElement(By.cssSelector("p.error")).getText());
+//	driver.close();
+	driver.findElement(By.linkText("Forgot your password?")).click();
+//	using xpath
+//	$x("//input[@placeholder='Name']") in the console to get desired elemnt
+	driver.findElement(By.xpath("//input[@placeholder='Name']")).sendKeys("Jeetesh");
+	
+//	Using customised css tagname
+	driver.findElement(By.cssSelector("input[placeholder='Email']")).sendKeys("jeeteshsingh210@gmail.com");
+//	when we have to find the exact tag from a list of multiple tag lets say if we have 5
+//	text and we need to select 2nd text then we will use it as ("//input[@type=:text"][2]")
+	driver.findElement(By.xpath("//input[@type='text'][3]")).sendKeys("7992216621");
+//	another way of writing xpath that is ===> ("//parentTagName/ChildTag")
+	System.out.println(driver.findElement(By.xpath("//form/h2")).getText());
+	
+	driver.findElement(By.cssSelector("Button.reset-pwd-btn")).click();
+//	anotjher way of writing css selectors ------ "tagname childtagname"
+	System.out.println(driver.findElement(By.cssSelector("form p")).getText());
+	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+	driver.findElement(By.cssSelector("Button.go-to-login-btn")).click();
+	driver.findElement(By.id("inputUsername")).sendKeys("Jeetesh");
+	driver.findElement(By.name("inputPassword")).sendKeys("rahulshettyacademy");
+	driver.findElement(By.className("submit")).click();
+//	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+driver.findElement(By.cssSelector("Button.logout-btn")).click();
+	
+	
+	
+	
+	
+	
+
+	}
+
+}
